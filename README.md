@@ -51,3 +51,13 @@ Caso deseje explorar o banco fora do ambiente do Colab, pode abri-lo em ferramen
 * **[DB Browser for SQLite](https://sqlitebrowser.org/)** (Interface gráfica simples)
 * **DBeaver**
 * Extensão **SQLite** no **VS Code**
+
+---
+
+---
+
+## 📁 Documentos e Arquivos do Minicurso
+
+- 📓 **Notebook (.ipynb):** [`minicurso_sql_saude_sifilis_pb.ipynb`](./minicurso_sql_saude_sifilis_pb.ipynb) — Caderno interativo com os códigos do Colab.
+- 📊 **Slides:** [`Fundamentos de SQL para Bancos de Dados em Saúde.pdf`](./nome_do_seu_arquivo_de_slides.pdf) — Apresentação de apoio do minicurso.
+- 🗄️ **Banco de Dados:** [`sifilis_pb.db`](./sifilis_pb.db) — Base de dados em SQLite (SINAN/DATASUS).
