@@ -35,7 +35,7 @@ Você pode utilizar o banco de dados tanto no **Google Colab** (ambiente utiliza
 5. Siga os exercícios do *notebook* para conectar e consultar o banco via SQL!
 
 ## 1. Download do banco de dados direto do GitHub e instalação do suporte a SQL
-* !wget -O sifilis_pb.db "https://raw.githubusercontent.com/vivianrodrigues-dev/Banco-de-Dados-Sifilis-PB/main/sifilis_pb.db"
+* !wget -O sifilis_pb.db "https://raw.githubusercontent.com/vivianrodrigues-dev/Minicurso-SQL-Saude/main/sifilis_pb.db"
 * !pip install -q jupysql
 
 ## 2. Carregamento da extensão SQL e conexão com o SQLite
