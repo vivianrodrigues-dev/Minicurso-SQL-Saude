@@ -1,0 +1,428 @@
+/*-- scss:defaults --*/
+
+// Fonte de alta legibilidade (desenhada para leitura a distância e baixa visão).
+// Se estiver sem internet, o navegador usa a próxima da lista.
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap');
+
+// Paleta
+$teal:       #0E7C86;   // principal: títulos, cabeçalhos, chave primária
+$teal-dark:  #0A5560;   // texto de apoio sobre fundo claro
+$mint:       #2BB58F;   // linhas de destaque
+$mint-deep:  #17886A;   // rótulos com texto branco, chave estrangeira
+$ice:        #E6F4F6;   // fundos suaves
+$ice-line:   #C9E4E8;   // contornos
+$ink:        #1F3A4D;   // texto
+$slate:      #5B7688;   // chave secundária, itens neutros
+$coral:      #E4572E;   // alerta (usar só em erros)
+$coral-tint: #FDECE6;
+$mint-tint:  #DFF4EC;
+$teal-tint:  #CFE9EC;
+
+$font-family-sans-serif: "Atkinson Hyperlegible", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+$body-bg: #ffffff;
+$body-color: $ink;
+$link-color: $teal;
+$selection-bg: $mint;
+$presentation-heading-font: $font-family-sans-serif;
+$presentation-heading-color: $teal;
+$presentation-heading-font-weight: 700;
+$code-block-bg: #F2FAF8;
+
+
+/*-- scss:rules --*/
+
+// ---------- Base ----------
+.reveal {
+  font-family: $font-family-sans-serif;
+  color: $ink;
+}
+
+.reveal h2 {
+  color: $teal;
+  text-align: left;
+  border-bottom: 3px solid $mint;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.7em;
+}
+
+.reveal ul li::marker,
+.reveal ol li::marker {
+  color: $mint-deep;
+}
+
+.reveal :not(pre) > code {
+  background: $ice;
+  color: $teal-dark;
+  padding: 0.05em 0.3em;
+  border-radius: 4px;
+  border: none;
+}
+
+.reveal blockquote {
+  width: 100%;
+  margin: 0.4em 0;
+  padding: 0.4em 0.9em;
+  background: #ffffff;
+  border-left: 5px solid $mint;
+  box-shadow: none;
+  font-style: normal;
+}
+
+.reveal pre {
+  width: 100%;
+  box-shadow: none;
+  border-left: 5px solid $mint;
+  border-radius: 0 6px 6px 0;
+}
+
+.reveal div.sourceCode {
+  background: #F2FAF8;
+}
+
+// ---------- Slide de título, rodapé, número ----------
+.reveal #title-slide .title {
+  color: $teal-dark;
+  border-bottom: none;
+}
+
+.reveal #title-slide .author,
+.reveal #title-slide .institute {
+  color: $ink;
+}
+
+.reveal .slide-number {
+  color: $teal;
+  background: transparent;
+}
+
+.reveal .footer {
+  color: $teal;
+}
+
+// ---------- Tabelas ----------
+.reveal table {
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  margin: 0.3em 0;
+  border: 1px solid $ice-line;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.reveal table thead th {
+  background: $teal;
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  padding: 0.45em 0.7em;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.reveal table tbody td {
+  padding: 0.38em 0.7em;
+  border: none;
+  border-bottom: 1px solid #E3EEF0;
+  background: #ffffff;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.reveal table tbody tr:nth-child(even) td {
+  background: #F3F9FA;
+}
+
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+// Nome da tabela (primeira linha de texto acima dela)
+.reveal .tb {
+  width: 100%;
+  min-width: 0;
+}
+
+.reveal .tb > p:first-child {
+  margin: 0 0 0.3em 0;
+  font-weight: 700;
+  color: $teal-dark;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+// Chave primaria = 1a coluna, chave estrangeira = 2a coluna (mesmas cores do slide "Chaves")
+.reveal .tb-pk table tbody tr td:nth-child(1) {
+  background: $teal-tint;
+  font-weight: 700;
+  color: $teal-dark;
+}
+
+.reveal .tb-pk table thead th:nth-child(1)::after {
+  content: " (PK)";
+  font-weight: 400;
+  font-size: 0.75em;
+}
+
+.reveal .tb-fk table tbody tr td:nth-child(2) {
+  background: $mint-tint;
+  font-weight: 700;
+  color: $mint-deep;
+}
+
+.reveal .tb-fk table thead th:nth-child(2) {
+  background: $mint-deep;
+}
+
+.reveal .tb-fk table thead th:nth-child(2)::after {
+  content: " (FK)";
+  font-weight: 400;
+  font-size: 0.75em;
+}
+
+// Chave secundaria = 3a coluna (so usada no exemplo compacto de Chaves)
+.reveal .tb-sk table tbody tr td:nth-child(3) {
+  background: #EDEFF1;
+  font-weight: 700;
+  color: $slate;
+}
+
+.reveal .tb-sk table thead th:nth-child(3) {
+  background: $slate;
+}
+
+.reveal .tb-sk table thead th:nth-child(3)::after {
+  content: " (SK)";
+  font-weight: 400;
+  font-size: 0.75em;
+}
+
+// Atributo = cabecalho (coluna), tupla = 1a linha
+.reveal .tb-tupla table tbody tr:first-child td {
+  background: $mint-tint;
+  font-weight: 700;
+  color: $mint-deep;
+}
+
+// ---------- Blocos lado a lado ----------
+.reveal .lado {
+  display: flex;
+  gap: 1.2em;
+  align-items: flex-start;
+}
+
+.reveal .lado > div {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.reveal .lado > .c4 {
+  flex: 1 1 42%;
+}
+
+.reveal .lado > .seta {
+  flex: 0 0 auto;
+  align-self: center;
+  font-size: 2em;
+  font-weight: 700;
+  color: $teal;
+}
+
+// ---------- Painel e nota ----------
+.reveal .painel {
+  background: $ice;
+  border-radius: 8px;
+  padding: 0.6em 1em;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.reveal .painel.neutro {
+  background: #F1F4F6;
+}
+
+.reveal .painel > :first-child,
+.reveal .nota > :first-child,
+.reveal .def .desc > :first-child {
+  margin-top: 0;
+}
+
+.reveal .painel > :last-child,
+.reveal .nota > :last-child,
+.reveal .def .desc > :last-child {
+  margin-bottom: 0;
+}
+
+.reveal .nota {
+  background: $mint-tint;
+  border-left: 5px solid $mint;
+  padding: 0.5em 1em;
+  margin: 0.6em 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+// Em telas estreitas (celular), empilha as colunas em vez de
+// espremer, para cada bloco usar a largura toda.
+@media (max-width: 640px) {
+  .reveal .lado {
+    flex-direction: column;
+  }
+
+  .reveal .lado > .c4 {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+// ---------- Termo + explicacao ----------
+// Uma unica caixa, uma unica cor de fundo: o termo entra como
+// rotulo em destaque dentro da propria caixa, sem bloco separado.
+.reveal .def {
+  background: $ice;
+  border-left: 6px solid $teal;
+  border-radius: 8px;
+  padding: 0.55em 1.1em;
+  margin: 0.6em 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.reveal .def .term {
+  color: $teal-dark;
+  font-weight: 700;
+  font-size: 1.05em;
+}
+
+.reveal .def .term p {
+  margin: 0 0 0.15em 0;
+}
+
+.reveal .def .desc {
+  color: $ink;
+}
+
+.reveal .def .desc p {
+  margin: 0;
+}
+
+.reveal .def.mint {
+  border-left-color: $mint-deep;
+}
+
+.reveal .def.mint .term {
+  color: $mint-deep;
+}
+
+.reveal .def.slate {
+  border-left-color: $slate;
+}
+
+.reveal .def.slate .term {
+  color: $slate;
+}
+
+// ---------- Banco de dados: dado -> tabela -> banco ----------
+.reveal .fluxo {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
+}
+
+.reveal .fluxo .caixa {
+  flex: 1;
+  min-width: 0;
+  border: 2px solid $ice-line;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.reveal .fluxo .caixa ul {
+  margin: 0.6em 0.8em 0.6em 1.6em;
+}
+
+.reveal .fluxo .titulo {
+  color: #ffffff;
+  text-align: center;
+  font-weight: 700;
+  padding: 0.5em;
+}
+
+.reveal .fluxo .titulo p {
+  margin: 0;
+}
+
+.reveal .fluxo .t1 { background: #4BA5AE; }
+.reveal .fluxo .t2 { background: $teal; }
+.reveal .fluxo .t3 { background: $teal-dark; }
+
+.reveal .fluxo .seta {
+  flex: 0 0 auto;
+  align-self: center;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: $teal;
+}
+
+// ---------- Tipos de relacionamento ----------
+.reveal .tipo {
+  text-align: center;
+  background: $ice;
+  border-radius: 8px;
+  border-top: 6px solid $teal;
+  padding: 0.6em 0.8em;
+}
+
+.reveal .tipo.t-n { border-top-color: $mint-deep; }
+.reveal .tipo.t-nn { border-top-color: $teal-dark; }
+
+.reveal .tipo .num {
+  font-size: 2em;
+  font-weight: 700;
+  color: $teal;
+  line-height: 1.1;
+}
+
+.reveal .tipo.t-n .num { color: $mint-deep; }
+.reveal .tipo.t-nn .num { color: $teal-dark; }
+
+.reveal .tipo .num p,
+.reveal .tipo .ex p {
+  margin: 0;
+}
+
+.reveal .tipo .ex {
+  margin-top: 0.5em;
+  padding: 0.3em 0.6em;
+  background: #ffffff;
+  border-radius: 6px;
+  font-weight: 700;
+  color: $teal-dark;
+}
+
+// ---------- Perguntas rapidas e erros comuns ----------
+.reveal .pergunta {
+  font-size: 1.15em;
+  border-left: 6px solid $teal;
+  background: $ice;
+  padding: 0.6em 1em;
+  margin: 0.7em 0;
+}
+
+.reveal .erro {
+  border-left: 6px solid $coral;
+  background: $coral-tint;
+  padding: 0.6em 1em;
+  margin: 0.7em 0;
+}
+
+.reveal .pergunta p,
+.reveal .erro p {
+  margin: 0;
+}
+
+.reveal section.alerta h2 {
+  border-bottom-color: $coral;
+}
