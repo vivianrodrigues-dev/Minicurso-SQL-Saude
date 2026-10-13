@@ -59,5 +59,5 @@ Caso deseje explorar o banco fora do ambiente do Colab, pode abri-lo em ferramen
 ## 📁 Documentos e Arquivos do Minicurso
 
 - 📓 **Notebook (.ipynb):**[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/vivianrodrigues-dev/Minicurso-SQL-Saude/blob/main/Minicurso_SQL.ipynb) — Caderno interativo com os códigos do Colab.
-- 📊 **Slides:** [`Fundamentos de SQL para Bancos de Dados em Saúde.pdf`](./nome_do_seu_arquivo_de_slides.pdf) — Apresentação de apoio do minicurso.
+- 📊 **Slides:** [`[Fundamentos de SQL para Bancos de Dados em Saúde.pdf](https://canva.link/qxt1rnct1f294ok)`] — Apresentação de apoio do minicurso.
 - 🗄️ **Banco de Dados:** [`sifilis_pb.db`](./sifilis_pb.db) — Base de dados em SQLite (SINAN/DATASUS).
